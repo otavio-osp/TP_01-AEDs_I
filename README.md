@@ -1,2 +1,10 @@
-# TP_01 AEDs_I
+# TP\_01 AEDs\_I
+
 Trabalho Prático de Algoritimo e Estrutura de Dados I
+
+
+
+Pedro tava aqui hein
+
+
+
