@@ -1,6 +1,6 @@
 #include "TAD_Pacote.h"
 
-pacote inicializar_pacote(pacote *pacote, char conteudo[50], char destinatario[50], float peso, float distancia){
+void inicializar_pacote(pacote *pacote, char conteudo[50], char destinatario[50], float peso, float distancia){
     strcpy(pacote->conteudo, conteudo);
     strcpy(pacote->destinatario, destinatario);
     pacote->peso = peso;
@@ -36,5 +36,5 @@ float get_peso(pacote *pacote){
 }
 
 float get_distancia_endereco(pacote *pacote){
-    pacote->distancia;
+    return pacote->distancia;
 }

@@ -8,7 +8,7 @@ void receber_pacote(galpao *galpao, pacote pacote){
 
 }
 
-void carregamento (galpao *galpao, drone *drone){
+void carregamento_galpao(galpao *galpao, drone *drone){
 
 }
 
