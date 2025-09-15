@@ -1,14 +1,20 @@
 #include "TAD_Lista_Pacotes.h"
 
-void flvazia (lista_pacote *lista){
+void iniciar_lista_vazia (Lista_pacote *lista){
 
 }
-void insere (lista_pacote *lista, pacote pacote){
+void inserir_pacote_final (Lista_pacote *lista, Pacote pacote){
+    //utilize ifs para retornar o mais rapido possivel
 
 }
-void remover (lista_pacote *lista){
+void remover_pacote_inicio (Lista_pacote *lista){
+    //utilize ifs para retornar o mais rapido possivel
+    //ex se n tiver pacote, retorna.
 
 }
-void imprime_lista (lista_pacote *lista){
-    
+void imprime_lista (Lista_pacote *lista){
+    //utilize ifs para retornar o mais rapido possivel
+    //ex se n tiver pacote, retorna.
+    //precisa verificar como vamos imprimir os dados na tela e sua formatação
+
 }

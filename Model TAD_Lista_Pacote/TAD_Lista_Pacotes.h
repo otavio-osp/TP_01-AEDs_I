@@ -11,15 +11,22 @@
 
 typedef struct
 {
-   
-pacote pacotes[maxtam];
+
+Pacote pacotes[maxtam];
 int inicio, final;
 
-}lista_pacote;
+}Lista_pacote;
 
-void flvazia (lista_pacote *lista);
-void insere (lista_pacote *lista, pacote pacote);
-void remover (lista_pacote *lista);
-void imprime_lista (lista_pacote *lista);
+//irá inicializar a lista vazia, retirando o lixo de memoria
+void iniciar_lista_vazia (Lista_pacote *lista);
+
+//Esta função irá inserir um pacote adicional ao final da lista
+void inserir_pacote_final (Lista_pacote *lista, Pacote pacote);
+
+//Esta função irá remover o pacote que esta no inicio da lista
+void remover_pacote_inicio (Lista_pacote *lista);
+
+//devera imprimir os dados dos pacotes que estão presentes na lista
+void imprime_lista (Lista_pacote *lista);
 
 #endif

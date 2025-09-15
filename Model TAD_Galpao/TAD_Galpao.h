@@ -11,14 +11,14 @@
 typedef struct
 {
 
-lista_pacote lista_de_pacotes;
+Lista_pacote lista_de_pacotes;
 
-}galpao;
+}Galpao;
 
-void inicializar_galpao (galpao *galpao, lista_pacote lista);
+void inicializar_galpao (Galpao *galpao, Lista_pacote lista);
 
-void receber_pacote(galpao *galpao, pacote pacote);
-void carregamento_galpao(galpao *galpao, drone *drone);
-void imprimi_galpao(galpao *galpao);
+void receber_pacote(Galpao *galpao, Pacote pacote);
+void carregamento_galpao(Galpao *galpao, Drone *drone);
+void imprimi_galpao(Galpao *galpao);
 
 #endif
