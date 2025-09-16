@@ -16,7 +16,12 @@ void receber_pacote(Galpao *galpao, Pacote pacote){
 }
 
 void carregamento_galpao(Galpao *galpao, Drone *drone){
-    carregamento(&drone, galpao->lista_de_pacotes.pacotes[0].peso, galpao->lista_de_pacotes.pacotes[0].distancia, galpao)
+    // Remover o pacote da lista do galpao
+    //jogar o pacote no drone
+    //carregamento(&drone, Pacote *pacote)
+    
+
+    //Fazer o tratamento das excessoes
 
 }
 

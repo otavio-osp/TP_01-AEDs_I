@@ -6,16 +6,16 @@ Drone inicializar_drone (Drone *drone, float peso){
     drone->distancia_total = 0;
 }
 
-void carregamento (Drone *drone, float peso, float distancia, Lista_pacote lista){
+void carregamento (Drone *drone, Pacote pacote){
 
     //verifica se o drone suporta a carga
-    if ((drone->peso_carregado + peso) > drone->peso_max){
+    if ((drone->peso_carregado + pacote.peso) > drone->peso_max){
         printf("Carga não suportada!");
         return;
     }
-    drone->peso_carregado += peso;
-    drone->distancia_total += distancia;
-    drone->lista_de_entrega = lista;
+    drone->peso_carregado += pacote.peso;
+    drone->distancia_total += pacote.distancia;
+    //drone->lista_de_entrega = lista;
 
 }
 
