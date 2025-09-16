@@ -1,8 +1,32 @@
 #include "Model TAD_Pacote/TAD_Pacote.h"
 #include "Model TAD_Lista_Pacote/TAD_Lista_Pacotes.h"
 #include "Model TAD_Drone/TAD_Drone.h"
-#include "Model TAD_Galpão/TAD_Galpao.h"
+#include "Model TAD_Galpao/TAD_Galpao.h"
 
 int main(){
-    
+//Sistema de Gerenciamento de Entregas
+
+    // - Inicialização
+    Lista_pacote lista;
+    iniciar_lista_vazia(&lista);
+
+    Galpao galpao1;
+    //para implementar a inicialização precisamos fazer o model TAD_Lista_Pacotes.c
+    inicializar_galpao(&galpao1, lista);
+
+    Drone drone1;
+    inicializar_drone(&drone1, 10);
+
+    Pacote pacote1;
+    inicializar_pacote(&pacote1, "Remedio", "joao", 2, 10);
+
+    // - Recebimento
+    //para implementar receber pacote precisamos fazer o model TAD_Lista_Pacotes.c inserir no final da lista
+    receber_pacote(&galpao1, pacote1);
+
+    carregamento_galpao(&galpao1, &drone1);
+
+
+    printf("hello world");
+    return 0;
 }

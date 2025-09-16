@@ -2,24 +2,32 @@
 #include <stdlib.h>
 #include <string.h>
 
-typedef struct
-{
+#ifndef TAD_PACOTE_H
+#define TAD_PACOTE_H
+
+
+typedef struct{
 
     char conteudo[50];
     char destinatario[50];
     float peso;
     float distancia;
 
-}pacote;
+}Pacote;
 
-pacote inicializar_pacote(pacote *pacote, char conteudo[50], char destinatario[50], float peso, float distancia);
+//Inicialização do TAD Pacote
+void inicializar_pacote(Pacote *pacote, char conteudo[50], char destinatario[50], float peso, float distancia);
 
-void set_conteudo(pacote *pacote, char conteudo[50]);
-void set_destinatario(pacote *pacote, char destinatario[50]);
-void set_peso(pacote *pacote, float peso);
-void set_distancia_endereco(pacote *pacote, float distancia);
+//Atribuições de valores
+void set_conteudo(Pacote *pacote, char conteudo[50]);
+void set_destinatario(Pacote *pacote, char destinatario[50]);
+void set_peso(Pacote *pacote, float peso);
+void set_distancia_endereco(Pacote *pacote, float distancia);
 
-char get_conteudo(pacote *pacote);
-char get_destinatario(pacote *pacote);
-float get_peso(pacote *pacote);
-float get_distancia_endereco(pacote *pacote);
+//Obtenções de valores
+char get_conteudo(Pacote *pacote);
+char get_destinatario(Pacote *pacote);
+float get_peso(Pacote *pacote);
+float get_distancia_endereco(Pacote *pacote);
+
+#endif
