@@ -4,5 +4,5 @@
 #include "Model TAD_Galpão/TAD_Galpao.h"
 
 int main(){
-
+    
 }
