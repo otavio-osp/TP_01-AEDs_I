@@ -7,24 +7,39 @@
 #ifndef TAD_LISTA_PACOTES_H
 #define TAD_LISTA_PACOTES_H
 
-#define maxtam 100
+
+typedef int Chave;
 
 typedef struct
 {
+    Chave chave;
+    Pacote pacote;
+}Item;
 
-Pacote pacotes[maxtam];
-int inicio, final;
+typedef struct Celula_str
+{
+    Item item;
+    struct Celula_str *prox;
+} Celula;
 
-}Lista_pacote;
+typedef struct
+{
+    Celula *primeiro;
+    Celula *ultimo;
+} Lista_pacote;
+
 
 //irá inicializar a lista vazia, retirando o lixo de memoria
 void iniciar_lista_vazia (Lista_pacote *lista);
 
+//vai ler a lista vazia
+int ler_lista_vazia (Lista_pacote *lista);
+
 //Esta função irá inserir um pacote adicional ao final da lista
-void inserir_pacote_final (Lista_pacote *lista, Pacote pacote);
+int inserir_pacote_final (Lista_pacote *lista, Item * p_item);
 
 //Esta função irá remover o pacote que esta no inicio da lista
-void remover_pacote_inicio (Lista_pacote *lista);
+int remover_pacote_inicio (Lista_pacote *lista, Item * p_item);
 
 //devera imprimir os dados dos pacotes que estão presentes na lista
 void imprime_lista (Lista_pacote *lista);
