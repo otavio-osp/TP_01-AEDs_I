@@ -21,7 +21,7 @@ Lista_pacote lista_de_entrega;
 Drone inicializar_drone (Drone *drone, float peso);
 
 // Adiciona o pacote na lista, armazenando dentro do drone,
-void carregamento(Drone *drone, float peso, float distancia, Lista_pacote lista);
+int carregamento_drone(Drone *drone, Pacote pacote);
 
 // Retira da lista do drone as entregas a medida que as entregas vao sendo feitas
 // e incrementa a distancia percorrida 

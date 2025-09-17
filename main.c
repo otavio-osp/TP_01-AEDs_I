@@ -6,13 +6,10 @@
 int main(){
 //Sistema de Gerenciamento de Entregas
 
-    // - Inicialização
-    Lista_pacote lista;
-    iniciar_lista_vazia(&lista);
 
     Galpao galpao1;
     //para implementar a inicialização precisamos fazer o model TAD_Lista_Pacotes.c
-    inicializar_galpao(&galpao1, lista);
+    inicializar_galpao(&galpao1);
 
     Drone drone1;
     inicializar_drone(&drone1, 10);
@@ -20,9 +17,17 @@ int main(){
     Pacote pacote1;
     inicializar_pacote(&pacote1, "Remedio", "joao", 2, 10);
 
+    Pacote pacote2;
+    inicializar_pacote(&pacote1, "Comida", "]feien", 1, 20);
+
+    Pacote pacote3;
+    inicializar_pacote(&pacote1, "poapp", "ossa", 2, 10);
+
     // - Recebimento
-    //para implementar receber pacote precisamos fazer o model TAD_Lista_Pacotes.c inserir no final da lista
-    receber_pacote(&galpao1, pacote1);
+    //para implementar receber
+    receber_pacote_galpao(&galpao1, pacote1);
+    receber_pacote_galpao(&galpao1, pacote2);
+    receber_pacote_galpao(&galpao1, pacote3);
 
     carregamento_galpao(&galpao1, &drone1);
 

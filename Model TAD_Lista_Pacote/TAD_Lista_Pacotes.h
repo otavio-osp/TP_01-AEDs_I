@@ -8,24 +8,18 @@
 #define TAD_LISTA_PACOTES_H
 
 
-typedef int Chave;
-
-typedef struct
-{
-    Chave chave;
-    Pacote pacote;
-}Item;
-
 typedef struct Celula_str
 {
-    Item item;
+    Pacote pacote;
     struct Celula_str *prox;
+    
 } Celula;
 
 typedef struct
 {
     Celula *primeiro;
     Celula *ultimo;
+
 } Lista_pacote;
 
 
@@ -36,10 +30,10 @@ void iniciar_lista_vazia (Lista_pacote *lista);
 int ler_lista_vazia (Lista_pacote *lista);
 
 //Esta função irá inserir um pacote adicional ao final da lista
-int inserir_pacote_final (Lista_pacote *lista, Item * p_item);
+int inserir_pacote_final (Lista_pacote *lista, Pacote *pacote);
 
 //Esta função irá remover o pacote que esta no inicio da lista
-int remover_pacote_inicio (Lista_pacote *lista, Item * p_item);
+int remover_pacote_inicio (Lista_pacote *lista, Pacote *pacote);
 
 //devera imprimir os dados dos pacotes que estão presentes na lista
 void imprime_lista (Lista_pacote *lista);

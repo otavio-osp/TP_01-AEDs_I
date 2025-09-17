@@ -15,9 +15,9 @@ Lista_pacote lista_de_pacotes;
 
 }Galpao;
 
-void inicializar_galpao (Galpao *galpao, Lista_pacote lista);
+void inicializar_galpao (Galpao *galpao);
 
-void receber_pacote(Galpao *galpao, Pacote pacote);
+void receber_pacote_galpao(Galpao *galpao, Pacote pacote);
 void carregamento_galpao(Galpao *galpao, Drone *drone);
 void imprimi_galpao(Galpao *galpao);
 
