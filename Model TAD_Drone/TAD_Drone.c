@@ -1,6 +1,6 @@
 #include "TAD_Drone.h"
 
-Drone inicializar_drone (Drone *drone, float peso){
+Drone inicializar_drone (Drone *drone, int peso){
     drone->peso_max = peso;
     drone->peso_carregado = 0;
     drone->distancia_total = 0;

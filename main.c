@@ -4,34 +4,32 @@
 #include "Model TAD_Galpao/TAD_Galpao.h"
 
 int main(){
-//Sistema de Gerenciamento de Entregas
+    // Declaração de variiaveis
+    int peso_max_drone, quantidade_pacotes;
+    Galpao galpao;
+    Drone drone;
 
+    // Manipulação de arquivos
+    FILE *file = fopen("teste1.txt", "r");
+    fscanf(file, "%d", &peso_max_drone);
+    fscanf(file, "%d", &quantidade_pacotes);
+    
+    // inicializando galpão e drone
+    inicializar_galpao(&galpao);
+    inicializar_drone(&drone, peso_max_drone);
+    
+    // Peenximento do galpão com pacotes lidos em arquivo
+    for (int i = 0; i < quantidade_pacotes; i++){
+        Pacote pacote;
+        fscanf(file, "%s %s %d %d", pacote.conteudo, pacote.destinatario, &pacote.peso, &pacote.distancia);
+        // Recebimento do pacotes
+        receber_pacote_galpao(&galpao, &pacote);
+    }
+    
+    //Sistema de Gerenciamento de Entregas
+    carregamento_galpao(&galpao, &drone);
 
-    Galpao galpao1;
-    //para implementar a inicialização precisamos fazer o model TAD_Lista_Pacotes.c
-    inicializar_galpao(&galpao1);
+    fclose(file);
 
-    Drone drone1;
-    inicializar_drone(&drone1, 10);
-
-    Pacote pacote1;
-    inicializar_pacote(&pacote1, "Remedio", "joao", 2, 10);
-
-    Pacote pacote2;
-    inicializar_pacote(&pacote1, "Comida", "]feien", 1, 20);
-
-    Pacote pacote3;
-    inicializar_pacote(&pacote1, "poapp", "ossa", 2, 10);
-
-    // - Recebimento
-    //para implementar receber
-    receber_pacote_galpao(&galpao1, pacote1);
-    receber_pacote_galpao(&galpao1, pacote2);
-    receber_pacote_galpao(&galpao1, pacote3);
-
-    carregamento_galpao(&galpao1, &drone1);
-
-
-    printf("hello world");
     return 0;
 }

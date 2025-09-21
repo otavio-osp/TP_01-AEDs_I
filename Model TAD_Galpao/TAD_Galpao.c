@@ -1,7 +1,7 @@
 #include "TAD_Galpao.h"
 
 // Vamos iniciar a lista e chamamos a funcao inicializar lista vazia
-void inicializar_galpao (Galpao *galpao){
+void inicializar_galpao(Galpao *galpao){
     Lista_pacote lista;
     iniciar_lista_vazia(&lista);
     galpao->lista_de_pacotes = lista;

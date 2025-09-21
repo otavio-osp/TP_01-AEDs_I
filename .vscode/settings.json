@@ -16,6 +16,9 @@
         "vazia"
     ],
     "files.associations": {
-        "tad_drone.h": "c"
+        "tad_drone.h": "c",
+        "tuple": "c",
+        "tad_galpao.h": "c",
+        "tad_pacote.h": "c"
     }
 }
