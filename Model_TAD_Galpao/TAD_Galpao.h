@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../Model TAD_Lista_Pacote/TAD_Lista_Pacotes.h"
-#include "../Model TAD_Drone/TAD_Drone.h"
+#include "../Model_TAD_Lista_Pacote/TAD_Lista_Pacotes.h"
+#include "../Model_TAD_Drone/TAD_Drone.h"
 
 #ifndef TAD_GALPAO_H
 #define TAD_GALPAO_H
