@@ -5,31 +5,88 @@
 
 int main(){
     // Declaração de variiaveis
-    int peso_max_drone, quantidade_pacotes;
+    int peso_max_drone, quantidade_pacotes, escolha;
     Galpao galpao;
     Drone drone;
 
-    // Manipulação de arquivos
-    FILE *file = fopen("teste1.txt", "r");
-    fscanf(file, "%d", &peso_max_drone);
-    fscanf(file, "%d", &quantidade_pacotes);
-    
-    // inicializando galpão e drone
-    inicializar_galpao(&galpao);
-    inicializar_drone(&drone, peso_max_drone);
-    
-    // Peenximento do galpão com pacotes lidos em arquivo
-    for (int i = 0; i < quantidade_pacotes; i++){
-        Pacote pacote;
-        fscanf(file, "%s %s %d %d", pacote.conteudo, pacote.destinatario, &pacote.peso, &pacote.distancia);
-        // Recebimento do pacotes
-        receber_pacote_galpao(&galpao, &pacote);
-    }
-    
-    //Sistema de Gerenciamento de Entregas
-    carregamento_galpao(&galpao, &drone);
+    // Escolha manual ou por arquivo
+    printf("Escolha a forma de entrada de dados\n[1] Manual\n[2] Arquivo\n");
+    scanf("%d", &escolha);
 
-    fclose(file);
+    switch (escolha){
+        case 1: {// caso seja escolhido manual
+            printf("Digite o peso maximo do drone: ");
+            scanf("%d", &peso_max_drone);
+            
+            printf("Digite a quantidade de pacotes: ");
+            scanf("%d", &quantidade_pacotes);
+            
+            // Inicializando galpâo e drone
+            inicializar_galpao(&galpao);
+            inicializar_drone(&drone, peso_max_drone);
+            
+            // Peenximento do galpão com pacotes de forma manual
+            for (int i = 0; i < quantidade_pacotes; i++) {
+                Pacote pacote;
+                
+                printf("\nPacote %d:\n", i+1);
+                printf("Conteudo: ");
+                scanf("%s", pacote.conteudo);
+                printf("Destinatario: ");
+                scanf("%s", pacote.destinatario);
+                printf("Peso: ");
+                scanf("%d", &pacote.peso);
+                printf("Distancia: ");
+                scanf("%d", &pacote.distancia);
+                
+                // Recebimento dos pacotes
+                receber_pacote_galpao(&galpao, &pacote);
+            }
+            
+            //Sistema de Gerenciamento de Entregas
+            carregamento_galpao(&galpao, &drone);
+            break;
+        }
+        case 2: {// Caso seja escolhido entrada por arquivo
+            char arquivo[50];
+
+            printf("Digite o nome do arquivo desejado:\n(teste1.txt ou teste2.txt)\n");
+            scanf("%s", arquivo);
+
+            // Manipulação de arquivos
+            FILE *file = fopen(arquivo, "r");
+            if(file == NULL){
+                printf("arquivo não identificado\n");
+                return 1;
+            }
+            fscanf(file, "%d", &peso_max_drone);
+            fscanf(file, "%d", &quantidade_pacotes);
+            
+            // inicializando galpão e drone
+            inicializar_galpao(&galpao);
+            inicializar_drone(&drone, peso_max_drone);
+            
+            // Peenximento do galpão com pacotes lidos em arquivo
+            for (int i = 0; i < quantidade_pacotes; i++){
+                Pacote pacote;
+                fscanf(file, "%s %s %d %d", pacote.conteudo, pacote.destinatario, &pacote.peso, &pacote.distancia);
+                // Recebimento do pacotes
+                receber_pacote_galpao(&galpao, &pacote);
+            }
+            
+            //Sistema de Gerenciamento de Entregas
+            carregamento_galpao(&galpao, &drone);
+        
+            fclose(file);
+            break;
+        }
+        default: {
+            printf("escolha não identificada\n");
+            return 1;
+    }
+    }
+
+    
 
     return 0;
 }
