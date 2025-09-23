@@ -25,9 +25,10 @@ void set_peso(Pacote *pacote, int peso);
 void set_distancia_endereco(Pacote *pacote, int distancia);
 
 //Obtenções de valores
-char get_conteudo(Pacote *pacote);
-char get_destinatario(Pacote *pacote);
-int get_peso(Pacote *pacote);
-int get_distancia_endereco(Pacote *pacote);
+//const para não ter risco de alterar e ponteiro para não precisar copiar a struct completa
+const char *get_conteudo(const Pacote *pacote);
+const char *get_destinatario(const Pacote *pacote);
+int get_peso(const Pacote *pacote);
+int get_distancia_endereco(const Pacote *pacote);
 
 #endif

@@ -14,9 +14,13 @@ Lista_pacote lista_de_pacotes;
 
 }Galpao;
 
+// Inicializa uma lista vazia no galpao
 void inicializar_galpao(Galpao *galpao);
-void receber_pacote_galpao(Galpao *galpao, Pacote *pacote);
+// Guarda os pacotes recebidos no galpao
+void receber_pacote_galpao(Galpao *galpao, Pacote pacote);
+// Insere os pacotes da lista do galpao no drone
 void carregamento_galpao(Galpao *galpao, Drone *drone);
+// Impressão dos pacotes a serem entregues no dia
 void imprimi_galpao(Galpao *galpao);
 
 #endif

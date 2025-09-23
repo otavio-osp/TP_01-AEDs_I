@@ -1,28 +1,53 @@
 {
+    // ===========================================
+    // ARQUIVO: tasks.json
+    // Configurações de build, run e clean
+    // Integração direta com o Makefile multiplataforma
+    // ===========================================
+
+    "version": "2.0.0",
     "tasks": [
         {
-            "type": "cppbuild",
-            "label": "C/C++: gcc.exe arquivo de build ativo",
-            "command": "C:\\MinGW\\bin\\gcc.exe",
+            "label": "build",
+            "type": "shell",
+            "command": "make",
             "args": [
-                "-fdiagnostics-color=always",
-                "-g",
-                "${file}",
-                "-o",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe"
-            ],
-            "options": {
-                "cwd": "${fileDirname}"
-            },
-            "problemMatcher": [
-                "$gcc"
+                "all"
             ],
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
-            "detail": "Tarefa gerada pelo Depurador."
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
+            "label": "clean",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "clean"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "run",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "run"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "debug",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "debug"
+            ],
+            "problemMatcher": []
         }
-    ],
-    "version": "2.0.0"
+    ]
 }

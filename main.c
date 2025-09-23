@@ -3,15 +3,22 @@
 #include "Model_TAD_Drone/TAD_Drone.h"
 #include "Model_TAD_Galpao/TAD_Galpao.h"
 
+
+
 int main(){
-    // Declaração de variiaveis
-    int peso_max_drone, quantidade_pacotes, escolha;
+    // Declaração de variaveis
+    int peso_max_drone = 0, quantidade_pacotes = 0, escolha = 0;
+
+    //iniciaização de galpao
     Galpao galpao;
+    inicializar_galpao(&galpao);
+
     Drone drone;
 
     // Escolha manual ou por arquivo
     printf("Escolha a forma de entrada de dados\n[1] Manual\n[2] Arquivo\n");
-    scanf("%d", &escolha);
+    //scanf("%d", &escolha);
+    escolha = 2;
 
     switch (escolha){
         case 1: {// caso seja escolhido manual
@@ -21,11 +28,10 @@ int main(){
             printf("Digite a quantidade de pacotes: ");
             scanf("%d", &quantidade_pacotes);
             
-            // Inicializando galpâo e drone
-            inicializar_galpao(&galpao);
+            // Inicializando drone
             inicializar_drone(&drone, peso_max_drone);
             
-            // Peenximento do galpão com pacotes de forma manual
+            // Preenchimento do galpão com pacotes de forma manual
             for (int i = 0; i < quantidade_pacotes; i++) {
                 Pacote pacote;
                 
@@ -40,7 +46,7 @@ int main(){
                 scanf("%d", &pacote.distancia);
                 
                 // Recebimento dos pacotes
-                receber_pacote_galpao(&galpao, &pacote);
+                receber_pacote_galpao(&galpao, pacote);
             }
             
             //Sistema de Gerenciamento de Entregas
@@ -48,30 +54,33 @@ int main(){
             break;
         }
         case 2: {// Caso seja escolhido entrada por arquivo
-            char arquivo[50];
+            char arquivo[20];
 
-            printf("Digite o nome do arquivo desejado:\n(teste1.txt ou teste2.txt)\n");
-            scanf("%s", arquivo);
+            printf("\nDigite o nome do arquivo desejado:\n(teste1.txt ou teste2.txt)\n");
+            //scanf("%s", arquivo);
+            strcpy(arquivo, "teste1.txt");
 
             // Manipulação de arquivos
             FILE *file = fopen(arquivo, "r");
             if(file == NULL){
-                printf("arquivo não identificado\n");
-                return 1;
+                printf("Arquivo não identificado\n");
+                return 0;
             }
+
+            // Os 2 primeiros valores serão para inicialização de drones e preenchimento dos pacotes
             fscanf(file, "%d", &peso_max_drone);
             fscanf(file, "%d", &quantidade_pacotes);
             
-            // inicializando galpão e drone
-            inicializar_galpao(&galpao);
+            // inicializando drone
             inicializar_drone(&drone, peso_max_drone);
             
-            // Peenximento do galpão com pacotes lidos em arquivo
+            // Preenchimento do galpão com pacotes lidos em arquivo
             for (int i = 0; i < quantidade_pacotes; i++){
                 Pacote pacote;
+                //modificar isso para utilizar os sets e get
                 fscanf(file, "%s %s %d %d", pacote.conteudo, pacote.destinatario, &pacote.peso, &pacote.distancia);
                 // Recebimento do pacotes
-                receber_pacote_galpao(&galpao, &pacote);
+                receber_pacote_galpao(&galpao, pacote);
             }
             
             //Sistema de Gerenciamento de Entregas
@@ -81,12 +90,9 @@ int main(){
             break;
         }
         default: {
-            printf("escolha não identificada\n");
+            printf("Escolha não identificada\n");
             return 1;
     }
     }
-
-    
-
     return 0;
 }

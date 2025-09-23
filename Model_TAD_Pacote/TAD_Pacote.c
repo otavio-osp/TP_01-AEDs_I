@@ -23,18 +23,18 @@ void set_distancia_endereco(Pacote *pacote, int distancia){
     pacote->distancia = distancia;
 }
 
-char get_conteudo(Pacote *pacote){
+const char *get_conteudo(const Pacote *pacote){
     return pacote->conteudo;
 }
 
-char get_destinatario(Pacote *pacote){
+const char *get_destinatario(const Pacote *pacote){
     return pacote->destinatario;
 }
 
-int get_peso(Pacote *pacote){
+int get_peso(const Pacote *pacote){
     return pacote->peso;
 }
 
-int get_distancia_endereco(Pacote *pacote){
+int get_distancia_endereco(const Pacote *pacote){
     return pacote->distancia;
 }

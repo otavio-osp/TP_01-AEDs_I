@@ -9,16 +9,19 @@
 typedef struct
 {
     
-int peso_max;
-int peso_carregado;
-int distancia_total;
+double peso_max;
+double peso_carregado;
+double distancia_total;
 Lista_pacote lista_de_entrega;
 
 }Drone;
 
 // Inicia os valores do drone para não ter lixo de memoria,
 // também inicializamos o valor maximo que ele consegue carregar.
-Drone inicializar_drone (Drone *drone, int peso);
+void inicializar_drone (Drone *drone, int peso);
+
+// Verifica se o drone aguenta mais peso
+int carga_suportada(Drone *drone, int peso);
 
 // Adiciona o pacote na lista, armazenando dentro do drone,
 int carregamento_drone(Drone *drone, Pacote pacote);
@@ -27,7 +30,7 @@ int carregamento_drone(Drone *drone, Pacote pacote);
 // e incrementa a distancia percorrida 
 void faz_entrega(Drone *drone);
 
-// imprime as informações dos pacotes que o drone esta carregando
-void imprime_drone (Drone *drone);
+// imprime as informações dos componentes do drone
+void imprime_drone (Drone drone, Pacote pacote);
 
 #endif

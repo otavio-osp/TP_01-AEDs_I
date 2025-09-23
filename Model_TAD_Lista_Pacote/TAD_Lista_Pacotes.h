@@ -30,7 +30,7 @@ void iniciar_lista_vazia (Lista_pacote *lista);
 int ler_lista_vazia (Lista_pacote *lista);
 
 //Esta função irá inserir um pacote adicional ao final da lista
-int inserir_pacote_final (Lista_pacote *lista, Pacote *pacote);
+void inserir_pacote_final (Lista_pacote *lista, Pacote *pacote);
 
 //Esta função irá remover o pacote que esta no inicio da lista
 int remover_pacote_inicio (Lista_pacote *lista, Pacote *pacote);
