@@ -13,7 +13,6 @@ void inicializar_drone (Drone *drone, int peso){
 int carga_suportada(Drone *drone, int peso){
     if ((drone->peso_carregado + peso) > drone->peso_max){
         printf("\nDrone esta cheio e pronto para a entrega!\n");
-        printf("\n-----------------------------------------\n" ); 
         return 0;
     }
     return 1;
@@ -32,7 +31,7 @@ int carregamento_drone(Drone *drone, Pacote pacote){
 
 void faz_entrega(Drone *drone){
     // Utilizado para marcar posição atual do drone em relação a ultima entrega/galpao
-    int posicao_atual = 0;
+    int posicao_atual = 0, temp_dist = 0;
            // Enquanto o drone ainda tiver entregas para fazer
     while (!ler_lista_vazia(&drone->lista_de_entrega))
     {   
@@ -45,14 +44,22 @@ void faz_entrega(Drone *drone){
         
         // Somamos o modulo, pois, ele pode percorrer direções opostas à ultima entrega/galpão
         drone->distancia_total += (posicao_atual < 0) ? -(posicao_atual) : posicao_atual;
+        // Armazena a distancia temporaria do pacote 
+        temp_dist += (posicao_atual < 0) ? -(posicao_atual) : posicao_atual;
 
         // Atualiza a posição do drone de acordo com a entrega realizada
         posicao_atual = pacote.distancia;
 
+        
         // Imprime qual foi a entrega realizada
-        imprime_drone(*drone, pacote);
+        imprime_drone(pacote);
     }
+    // Atualiza a distancia temporaria do pacote 
+    temp_dist += posicao_atual;
     
+    // Printa distancia total dessa viagem
+    printf ("Distancia total: %dKm\n", temp_dist);
+    printf("\n-----------------------------------------\n" ); 
     // O drone retorna para o galpão ao final do percurso
     drone->distancia_total += posicao_atual;
     //todas as entregas foram realizadas
@@ -62,10 +69,6 @@ void faz_entrega(Drone *drone){
     
 }
 
-void imprime_drone(Drone drone, Pacote pacote){
-    printf("O conteudo da entrega: %s\n", get_conteudo(&pacote)); 
-    printf("Foi enviado para: %s\n", get_destinatario(&pacote));
-    printf("Percorreu esta distancia: %d\n", get_distancia_endereco(&pacote));
-    printf("O drone percorreu ate entao: %.0f\n", drone.distancia_total); 
-    printf("-----------------------------------------\n" ); 
+void imprime_drone(Pacote pacote){
+    printf("Entrega: '%s' para '%s'\n", get_conteudo(&pacote), get_destinatario(&pacote)); 
 }

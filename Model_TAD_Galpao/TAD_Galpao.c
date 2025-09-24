@@ -18,6 +18,7 @@ void receber_pacote_galpao(Galpao *galpao, Pacote pacote){
 
 void carregamento_galpao(Galpao *galpao, Drone *drone){
     // Enquanto tiver item no galpão
+    int num_viagem = 1;
     while (!ler_lista_vazia(&galpao->lista_de_pacotes))
     {        
         printf("\nCarregando drone com os pacotes!\n" );
@@ -31,10 +32,14 @@ void carregamento_galpao(Galpao *galpao, Drone *drone){
             // Insere o pacote no drone
             carregamento_drone(drone, pacote);            
         }
+        // Mostra o numero da viagem
+        printf("\n-----------------------------------------\n");
+        printf("\nViagem: %d\n", num_viagem++);
         // Realiza as entregas dos pacotes
         faz_entrega(drone);
     }
     printf("\nTodas as entregas realizadas!\n" );
+    printf("Total de Quilometros Percorridos no Dia: %.0fKm", drone->distancia_total);
 }
 
 void imprimi_galpao(Galpao *galpao){
