@@ -27,7 +27,7 @@ typedef struct
 void iniciar_lista_vazia (Lista_pacote *lista);
 
 //vai ler a lista vazia
-int ler_lista_vazia (Lista_pacote *lista);
+int lista_eh_vazia (Lista_pacote *lista);
 
 //Esta função irá inserir um pacote adicional ao final da lista
 void inserir_pacote_final (Lista_pacote *lista, Pacote *pacote);

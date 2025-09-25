@@ -1,10 +1,10 @@
 #include "TAD_Pacote.h"
 
 void inicializar_pacote(Pacote *pacote, char conteudo[50], char destinatario[50], int peso, int distancia){
-    strcpy(pacote->conteudo, conteudo);
-    strcpy(pacote->destinatario, destinatario);
-    pacote->peso = peso;
-    pacote->distancia = distancia;
+    set_conteudo(pacote, conteudo);
+    set_destinatario(pacote, destinatario);
+    set_peso(pacote, peso);
+    set_distancia_endereco(pacote, distancia);
 }
 
 void set_conteudo(Pacote *pacote, char conteudo[50]){

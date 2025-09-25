@@ -6,7 +6,7 @@ void iniciar_lista_vazia (Lista_pacote *lista){
     lista->primeiro->prox = NULL;
 }
 
-int ler_lista_vazia (Lista_pacote *lista){
+int lista_eh_vazia (Lista_pacote *lista){
     return (lista->primeiro == lista->ultimo);
 }
 
@@ -20,7 +20,7 @@ void inserir_pacote_final (Lista_pacote *lista, Pacote *pacote){
 //Recebe a lista a ter seu item removido e devolve esse item atravez do parametro pacote
 int remover_pacote_inicio (Lista_pacote *lista, Pacote * pacote){
  Celula * aux;
- if (ler_lista_vazia(lista)){return 0;}
+ if (lista_eh_vazia(lista)){return 0;}
  *pacote = lista->primeiro->prox->pacote;
  aux = lista->primeiro;
  lista->primeiro = lista->primeiro->prox;

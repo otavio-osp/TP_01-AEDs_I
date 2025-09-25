@@ -28,7 +28,7 @@ int carregamento_drone(Drone *drone, Pacote pacote);
 
 // Retira da lista do drone as entregas a medida que as entregas vao sendo feitas
 // e incrementa a distancia percorrida 
-void faz_entrega(Drone *drone);
+void realizar_entrega(Drone *drone);
 
 // imprime as informações dos componentes do drone
 void imprime_drone (Pacote pacote);

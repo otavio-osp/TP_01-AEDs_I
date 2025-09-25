@@ -19,24 +19,28 @@ void receber_pacote_galpao(Galpao *galpao, Pacote pacote){
 void carregamento_galpao(Galpao *galpao, Drone *drone){
     // Enquanto tiver item no galpão
     int num_viagem = 1;
-    while (!ler_lista_vazia(&galpao->lista_de_pacotes))
+
+    //Enquanto tiver pacotes no galpao
+    while (!lista_eh_vazia(&galpao->lista_de_pacotes))
     {        
         printf("\nCarregando drone com os pacotes!\n" );
 
-        // Enquanto o drone suportar carga e tiver itens 
-        while (!ler_lista_vazia(&galpao->lista_de_pacotes) && carga_suportada(drone, galpao->lista_de_pacotes.primeiro->prox->pacote.peso))
-        {   // Retira o pacote do galpao
+        // Verifica enquanto tiver pacote e o drone suportar, ou seja restringe as viagens do drone
+        while (!lista_eh_vazia(&galpao->lista_de_pacotes) && carga_suportada(drone, galpao->lista_de_pacotes.primeiro->prox->pacote.peso))
+        {   // Instancia pacote para receber os dados do retirado a baixo
             Pacote pacote;
+            // Retira o pacote do galpao
             remover_pacote_inicio(&galpao->lista_de_pacotes, &pacote);
             
             // Insere o pacote no drone
-            carregamento_drone(drone, pacote);            
+            carregamento_drone(drone, pacote);
         }
+
         // Mostra o numero da viagem
         printf("\n-----------------------------------------\n");
         printf("\nViagem: %d\n", num_viagem++);
         // Realiza as entregas dos pacotes
-        faz_entrega(drone);
+        realizar_entrega(drone);
     }
     printf("\nTodas as entregas realizadas!\n" );
     printf("Total de Quilometros Percorridos no Dia: %.0fKm", drone->distancia_total);

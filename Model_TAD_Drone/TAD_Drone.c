@@ -11,6 +11,11 @@ void inicializar_drone (Drone *drone, int peso){
 
 
 int carga_suportada(Drone *drone, int peso){
+    if ((drone->peso_carregado + peso) > drone->peso_max && lista_eh_vazia(&drone->lista_de_entrega)){
+        printf("\nO drone nao suporta a carga!\n\n");
+        exit(1);
+    }
+
     if ((drone->peso_carregado + peso) > drone->peso_max){
         printf("\nDrone esta cheio e pronto para a entrega!\n");
         return 0;
@@ -18,8 +23,9 @@ int carga_suportada(Drone *drone, int peso){
     return 1;
 }
 
-// antes de ser chamada deve ser verificado se a carga é suportada
+// antes da função ser chamada deve ser verificado se a carga é suportada
 int carregamento_drone(Drone *drone, Pacote pacote){
+
     //Adiciona o pacote no drone
     inserir_pacote_final(&drone->lista_de_entrega, &pacote);
 
@@ -29,11 +35,11 @@ int carregamento_drone(Drone *drone, Pacote pacote){
     return 1;
 }
 
-void faz_entrega(Drone *drone){
+void realizar_entrega(Drone *drone){
     // Utilizado para marcar posição atual do drone em relação a ultima entrega/galpao
     int posicao_atual = 0, temp_dist = 0;
            // Enquanto o drone ainda tiver entregas para fazer
-    while (!ler_lista_vazia(&drone->lista_de_entrega))
+    while (!lista_eh_vazia(&drone->lista_de_entrega))
     {   
         // Remove o pacote do drone, para realizar entrega
         Pacote pacote;

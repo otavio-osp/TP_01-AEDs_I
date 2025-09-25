@@ -1,9 +1,6 @@
 #include "Model_TAD_Pacote/TAD_Pacote.h"
-#include "Model_TAD_Lista_Pacote/TAD_Lista_Pacotes.h"
 #include "Model_TAD_Drone/TAD_Drone.h"
 #include "Model_TAD_Galpao/TAD_Galpao.h"
-
-
 
 int main(){
     // Declaração de variaveis
@@ -21,7 +18,7 @@ int main(){
 
     switch (escolha){
         case 1: {// caso seja escolhido manual
-            printf("Digite o peso maximo do drone: ");
+            printf("\nDigite o peso maximo do drone: ");
             scanf("%d", &peso_max_drone);
             
             printf("Digite a quantidade de pacotes: ");
@@ -34,15 +31,22 @@ int main(){
             for (int i = 0; i < quantidade_pacotes; i++) {
                 Pacote pacote;
                 
+                char conteudo[50], destinatario[50];
+                int peso  = 0, distancia = 0;
+
                 printf("\nPacote %d:\n", i+1);
                 printf("Conteudo: ");
-                scanf("%s", pacote.conteudo);
+                scanf("%s", conteudo);
                 printf("Destinatario: ");
-                scanf("%s", pacote.destinatario);
+                scanf("%s", destinatario);
                 printf("Peso: ");
-                scanf("%d", &pacote.peso);
+                scanf("%d", &peso);
                 printf("Distancia: ");
-                scanf("%d", &pacote.distancia);
+                scanf("%d", &distancia);
+
+                //inicializamos o pacote com os dados
+                inicializar_pacote(&pacote, conteudo, destinatario, peso, distancia);
+
                 
                 // Recebimento dos pacotes
                 receber_pacote_galpao(&galpao, pacote);
@@ -75,9 +79,16 @@ int main(){
             // Preenchimento do galpão com pacotes lidos em arquivo
             for (int i = 0; i < quantidade_pacotes; i++){
                 Pacote pacote;
-                //modificar isso para utilizar os sets e get
-                fscanf(file, "%s %s %d %d", pacote.conteudo, pacote.destinatario, &pacote.peso, &pacote.distancia);
-                // Recebimento do pacotes
+
+                // Utilizando os sets
+                char conteudo[50], destinatario[50];
+                int peso  = 0, distancia = 0;
+                fscanf(file, "%s %s %d %d", conteudo, destinatario, &peso, &distancia);
+
+                //inicializamos o pacote com os dados
+                inicializar_pacote(&pacote, conteudo, destinatario, peso, distancia);
+
+                // Recebimento do pacote por galpao
                 receber_pacote_galpao(&galpao, pacote);
             }
             
