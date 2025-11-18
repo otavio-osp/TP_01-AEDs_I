@@ -1,0 +1,7 @@
+50
+5
+eletronico vinicius 12 50 3
+documento bernardo 20 11 2
+pecaauto leticia 16 5 2
+ferramenta joao 20 23 4
+eletronico manuela 8 41 3

@@ -19,8 +19,10 @@ void inicializar_galpao(Galpao *galpao);
 // Guarda os pacotes recebidos no galpao
 void receber_pacote_galpao(Galpao *galpao, Pacote pacote);
 // Insere os pacotes da lista do galpao no drone
-void carregamento_galpao(Galpao *galpao, Drone *drone);
+void carregamento_galpao_BubbleSort(Galpao *galpao, Drone *drone);
 // Impressão dos pacotes a serem entregues no dia
-void imprimi_galpao(Galpao *galpao);
+void carregamento_galpao_ShellSort(Galpao *galpao, Drone *drone);
+
+void imprimi_galpao(Lista_pacote *lista);
 
 #endif

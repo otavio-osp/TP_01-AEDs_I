@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 #include "../Model_TAD_Pacote/TAD_Pacote.h"
 
@@ -29,6 +30,12 @@ void iniciar_lista_vazia (Lista_pacote *lista);
 //vai ler a lista vazia
 int lista_eh_vazia (Lista_pacote *lista);
 
+// Ordena de acordo com BubbleSort
+void BubbleSort(Lista_pacote *lista);
+
+// Ordena de acordo com BubbleSort
+void ShellSort(Lista_pacote *lista);
+
 //Esta função irá inserir um pacote adicional ao final da lista
 void inserir_pacote_final (Lista_pacote *lista, Pacote *pacote);
 
@@ -37,5 +44,7 @@ int remover_pacote_inicio (Lista_pacote *lista, Pacote *pacote);
 
 //devera imprimir os dados dos pacotes que estão presentes na lista
 void imprime_lista (Lista_pacote *lista);
+
+void imprimi_testes(Lista_pacote *lista);
 
 #endif
