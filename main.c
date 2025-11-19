@@ -64,12 +64,12 @@ int main(){
                 
                 // Recebimento dos pacotes
                 receber_pacote_galpao(&galpao_BubbleSort, pacote);
-                // receber_pacote_galpao(&galpao_ShellSort, pacote);
+                receber_pacote_galpao(&galpao_ShellSort, pacote);
             }
             
             // Sistema de Gerenciamento de Entregas
-            carregamento_galpao_BubbleSort(&galpao_BubbleSort, &drone);
-            // carregamento_galpao_ShellSort(&galpao_ShellSort, &drone);
+            // carregamento_galpao_BubbleSort(&galpao_BubbleSort, &drone);
+            // carregamento_galpao_ShellSort(&galpao_ShellSort, &drone, quantidade_pacotes);
             break;
         }
         case 2: {// Caso seja escolhido entrada por arquivo
@@ -77,7 +77,7 @@ int main(){
 
             printf("\nDigite o nome do arquivo desejado:\n(teste1.txt ou teste2.txt)\n");
             //scanf("%s", arquivo);
-            strcpy(arquivo, "testedebug.txt");
+            strcpy(arquivo, "teste2.txt");
 
             // Manipulação de arquivos
             FILE *file = fopen(arquivo, "r");
@@ -106,13 +106,13 @@ int main(){
                 inicializar_pacote(&pacote, conteudo, destinatario, peso, distancia, prioridade);
 
                 // Recebimento do pacote por galpao
-                receber_pacote_galpao(&galpao_BubbleSort, pacote);
+                // receber_pacote_galpao(&galpao_BubbleSort, pacote);
                 receber_pacote_galpao(&galpao_ShellSort, pacote);
             }
             
             // Sistema de Gerenciamento de Entregas
-            carregamento_galpao_BubbleSort(&galpao_BubbleSort, &drone);
-            // carregamento_galpao_ShellSort(&galpao_ShellSort, &drone);
+            // carregamento_galpao_BubbleSort(&galpao_BubbleSort, &drone);
+            carregamento_galpao_ShellSort(&galpao_ShellSort, &drone, quantidade_pacotes);
         
             fclose(file);
 

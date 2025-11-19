@@ -58,10 +58,13 @@ void carregamento_galpao_BubbleSort(Galpao *galpao, Drone *drone){
 }
 
 
-void carregamento_galpao_ShellSort(Galpao *galpao, Drone *drone){
+void carregamento_galpao_ShellSort(Galpao *galpao, Drone *drone, int quantidade_pacotes){
+    
+    printf("Galpao antes da ordenacao\n");
+    imprimi_galpao(&galpao->lista_de_pacotes);
     
     // Ordena os pacotes com a logica do ShellSort
-    ShellSort(&galpao->lista_de_pacotes);
+    ShellSort(&galpao->lista_de_pacotes, quantidade_pacotes);
 
     // Enquanto tiver item no galpão
     int num_viagem = 1;
@@ -94,14 +97,16 @@ void carregamento_galpao_ShellSort(Galpao *galpao, Drone *drone){
 
 
 void imprimi_galpao(Lista_pacote *lista){
-    Celula * aux;
+       Celula * aux;
     aux = lista->primeiro->prox;
+    printf("\n");
     while (aux != NULL)
     {
         printf("%s , ", get_destinatario(&aux->pacote));
-        printf(" %d   | ", get_prioridade(&aux->pacote));
+        printf(" %d | ", get_prioridade(&aux->pacote));
         
         aux = aux-> prox;
     }
-    printf("\n----------------------------------\n\n");
+    printf("\n-----------------------------------------------------------------------------------------------------------------------------------------\n\n");
+
 }

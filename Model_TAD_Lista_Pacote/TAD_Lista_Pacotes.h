@@ -34,7 +34,7 @@ int lista_eh_vazia (Lista_pacote *lista);
 void BubbleSort(Lista_pacote *lista);
 
 // Ordena de acordo com BubbleSort
-void ShellSort(Lista_pacote *lista);
+void ShellSort(Lista_pacote *lista, int quantidade_pacotes);
 
 //Esta função irá inserir um pacote adicional ao final da lista
 void inserir_pacote_final (Lista_pacote *lista, Pacote *pacote);
