@@ -18,14 +18,18 @@ void receber_pacote_galpao(Galpao *galpao, Pacote pacote){
 
 
 void carregamento_galpao_BubbleSort(Galpao *galpao, Drone *drone){
-    printf("Galpao antes da ordenacao\n");
-    imprimi_galpao(&galpao->lista_de_pacotes);
+    //printf("Galpao antes da ordenacao por BubbleSort\n");
+    //imprimi_galpao(&galpao->lista_de_pacotes);
 
     // Ordena os pacotes com a logica do BubbleSort
     BubbleSort(&galpao->lista_de_pacotes);
 
-    printf("Galpao depois da ordenação\n");
-    imprimi_galpao(&galpao->lista_de_pacotes);
+    //printf("Galpao depois da ordenacao por BubbleSort\n");
+    //imprimi_galpao(&galpao->lista_de_pacotes);
+
+    int pra_para = 0;
+    printf("\nAperte 1 e enter pra o drone realizar as entregas");
+    scanf("%d", &pra_para);
 
 
     // Enquanto tiver item no galpão
@@ -60,11 +64,20 @@ void carregamento_galpao_BubbleSort(Galpao *galpao, Drone *drone){
 
 void carregamento_galpao_ShellSort(Galpao *galpao, Drone *drone, int quantidade_pacotes){
     
-    printf("Galpao antes da ordenacao\n");
-    imprimi_galpao(&galpao->lista_de_pacotes);
+    //printf("Galpao antes da ordenacao\n");
+    //imprimi_galpao(&galpao->lista_de_pacotes);
     
+    //printf("Galpao antes da ordenacao com ShellSort\n");
+    //imprimi_galpao(&galpao->lista_de_pacotes);
     // Ordena os pacotes com a logica do ShellSort
     ShellSort(&galpao->lista_de_pacotes, quantidade_pacotes);
+    //imprimi_galpao(&galpao->lista_de_pacotes);
+    int pra_para = 0;
+    printf("\nAperte 1 e enter pra continuar para as entregas do drone");
+    scanf("%d", &pra_para);
+
+    //printf("Galpao depois da ordenacao com ShellSort\n");
+    //imprimi_galpao(&galpao->lista_de_pacotes);
 
     // Enquanto tiver item no galpão
     int num_viagem = 1;

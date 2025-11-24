@@ -25,8 +25,7 @@ int main(){
 
     // Escolha manual ou por arquivo
     printf("Escolha a forma de entrada de dados\n[1] Manual\n[2] Arquivo\n");
-    //scanf("%d", &escolha);
-    escolha = 2;
+    scanf("%d", &escolha);
 
     switch (escolha){
         case 1: {// caso seja escolhido manual
@@ -68,16 +67,18 @@ int main(){
             }
             
             // Sistema de Gerenciamento de Entregas
-            // carregamento_galpao_BubbleSort(&galpao_BubbleSort, &drone);
-            // carregamento_galpao_ShellSort(&galpao_ShellSort, &drone, quantidade_pacotes);
+            carregamento_galpao_BubbleSort(&galpao_BubbleSort, &drone);
+            int pra_para = 0;
+            printf("Aperte enter pra continuar");
+            scanf("%d", &pra_para);
+            carregamento_galpao_ShellSort(&galpao_ShellSort, &drone, quantidade_pacotes);
             break;
         }
         case 2: {// Caso seja escolhido entrada por arquivo
             char arquivo[20];
 
             printf("\nDigite o nome do arquivo desejado:\n(teste1.txt ou teste2.txt)\n");
-            //scanf("%s", arquivo);
-            strcpy(arquivo, "teste2.txt");
+            scanf("%s", arquivo);
 
             // Manipulação de arquivos
             FILE *file = fopen(arquivo, "r");
@@ -106,12 +107,15 @@ int main(){
                 inicializar_pacote(&pacote, conteudo, destinatario, peso, distancia, prioridade);
 
                 // Recebimento do pacote por galpao
-                // receber_pacote_galpao(&galpao_BubbleSort, pacote);
+                receber_pacote_galpao(&galpao_BubbleSort, pacote);
                 receber_pacote_galpao(&galpao_ShellSort, pacote);
             }
             
             // Sistema de Gerenciamento de Entregas
-            // carregamento_galpao_BubbleSort(&galpao_BubbleSort, &drone);
+            carregamento_galpao_BubbleSort(&galpao_BubbleSort, &drone);
+            int pra_para = 0;
+            printf("\nAperte 1 e enter para ir para a ordenacao do ShellSort");
+            scanf("%d", &pra_para);
             carregamento_galpao_ShellSort(&galpao_ShellSort, &drone, quantidade_pacotes);
         
             fclose(file);
