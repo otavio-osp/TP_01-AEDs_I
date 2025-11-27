@@ -114,7 +114,7 @@ int main(){
             // Sistema de Gerenciamento de Entregas
             carregamento_galpao_BubbleSort(&galpao_BubbleSort, &drone);
             int pra_para = 0;
-            printf("\nAperte 1 e enter para ir para a ordenacao do ShellSort");
+            printf("\nAperte 1 e enter para ir para a ordenacao do ShellSort\n");
             scanf("%d", &pra_para);
             carregamento_galpao_ShellSort(&galpao_ShellSort, &drone, quantidade_pacotes);
         

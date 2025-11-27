@@ -28,7 +28,7 @@ void carregamento_galpao_BubbleSort(Galpao *galpao, Drone *drone){
     //imprimi_galpao(&galpao->lista_de_pacotes);
 
     int pra_para = 0;
-    printf("\nAperte 1 e enter pra o drone realizar as entregas");
+    printf("\nAperte 1 e enter pra o drone realizar as entregas\n");
     scanf("%d", &pra_para);
 
 
@@ -73,7 +73,7 @@ void carregamento_galpao_ShellSort(Galpao *galpao, Drone *drone, int quantidade_
     ShellSort(&galpao->lista_de_pacotes, quantidade_pacotes);
     //imprimi_galpao(&galpao->lista_de_pacotes);
     int pra_para = 0;
-    printf("\nAperte 1 e enter pra continuar para as entregas do drone");
+    printf("\nAperte 1 e enter pra continuar para as entregas do drone\n");
     scanf("%d", &pra_para);
 
     //printf("Galpao depois da ordenacao com ShellSort\n");
